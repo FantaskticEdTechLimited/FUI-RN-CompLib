@@ -1,9 +1,8 @@
 {
 	"name": "@fantaskticedtechlimited/fui-rn-complib",
-	"version": "1.10.0",
+	"version": "1.11.0",
 	"description": "Fantasktic UI React Native Component Library",
 	"main": "./lib/cjs/index.js",
-	"module": "./lib/esm/index.js",
 	"types": "./lib/esm/index.d.ts",
 	"repository": "https://github.com/FantaskticEdTechLimited/FUI-RN-CompLib.git",
 	"author": "pakmatthew",

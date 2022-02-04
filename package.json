@@ -1,16 +1,18 @@
 {
 	"name": "@fantaskticedtechlimited/fui-rn-complib",
-	"version": "1.6.0",
+	"version": "1.7.0",
 	"description": "Fantasktic UI React Native Component Library",
-	"main": "./lib/index.js",
-	"module": "./lib/index.js",
-	"types": "./lib/index.d.ts",
+	"main": "./lib/cjs/index.js",
+	"module": "./lib/esm/index.js",
+	"types": "./lib/esm/index.d.ts",
 	"repository": "https://github.com/FantaskticEdTechLimited/FUI-RN-CompLib.git",
 	"author": "pakmatthew",
 	"license": "MIT",
 	"private": false,
 	"scripts": {
-		"build": "cd ./node_modules/typescript/bin && tsc"
+		"build": "yarn build:esm && yarn build:cjs",
+		"build:esm": "tsc",
+		"build:cjs": "tsc --module commonjs --outDir lib/cjs"
 	},
 	"dependencies": {
 		"react": "^17.0.2",
@@ -26,5 +28,8 @@
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com"
-	}
+	},
+	"files": [
+		"/lib"
+	]
 }

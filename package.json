@@ -1,6 +1,6 @@
 {
 	"name": "@fantaskticedtechlimited/fui-rn-complib",
-	"version": "1.8.0",
+	"version": "1.9.0",
 	"description": "Fantasktic UI React Native Component Library",
 	"main": "./lib/cjs/index.js",
 	"module": "./lib/esm/index.js",

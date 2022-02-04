@@ -1,10 +1,10 @@
 {
 	"name": "@fantaskticedtechlimited/fui-rn-complib",
-	"version": "1.4.0",
+	"version": "1.5.0",
 	"description": "Fantasktic UI React Native Component Library",
-	"main": "./lib/index.js",
-	"module": "./lib/index.js",
-	"types": "./lib/index.d.ts",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"repository": "https://github.com/FantaskticEdTechLimited/FUI-RN-CompLib.git",
 	"author": "pakmatthew",
 	"license": "MIT",
@@ -26,8 +26,5 @@
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com"
-	},
-	"files": [
-		"/lib"
-	]
+	}
 }

@@ -1,11 +1,9 @@
 {
-	"compilerOptions": {  
+	"compilerOptions": {
 		"module": "esnext",
 		"target": "es5",
 		"lib": ["es6", "dom"],
-		"typeRoots": [
-			"./typings"  
-		],
+		"typeRoots": ["./typings"],
 		"sourceMap": true,
 		"allowJs": true,
 		"jsx": "react",
@@ -23,11 +21,10 @@
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"resolveJsonModule": true,
-		"isolatedModules": false, 
-		"strictPropertyInitialization": false, 
-	}, 
-	"exclude": [
-		"node_modules",
-		"dist"
-	]
+		"isolatedModules": false,
+		"strictPropertyInitialization": false,
+		"declarationMap": true,
+		"declaration": true
+	},
+	"exclude": ["node_modules", "lib"]
 }

@@ -1,8 +1,7 @@
 import * as React from "react";
-import { View, Button } from "react-native"; 
+import { View, Button } from "react-native";
 import { containerStyle } from "./styles";
 import { defaultProps, Iprops } from "./types";
-
 
 export const CustomButton = (props: Iprops) => {
 	const handlePress = () => {
@@ -10,9 +9,12 @@ export const CustomButton = (props: Iprops) => {
 	};
 
 	const title = props.text || "Native Button";
-
+	
 	return (
-		<View style={[containerStyle.viewContainer, props.customContainerClass]}>
+		<View
+			{...defaultProps}
+			style={[containerStyle.viewContainer, props.customContainerClass]}
+		>
 			{props.children ? (
 				props.children
 			) : (
@@ -20,6 +22,4 @@ export const CustomButton = (props: Iprops) => {
 			)}
 		</View>
 	);
-}; 
-
-CustomButton.defaultProps = defaultProps
+};

@@ -28,13 +28,6 @@
 		"strictPropertyInitialization": false,
 		"declaration": true
 	},
-	"include": ["src"]
-	// "exclude": [
-	// 	"node_modules",
-	// 	"lib",
-	// 	"scripts",
-	// 	"acceptance-tests",
-	// 	"webpack",
-	// 	"jest"
-	// ]
+	// "include": ["src"]
+	"exclude": ["node_modules", "dist"]
 }

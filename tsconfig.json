@@ -8,7 +8,7 @@
 		// 	"./typings" // path to your typings directory (relative to tsconfig.json)
 		// ],
 		"sourceMap": false,
-		"allowJs": true,
+		// "allowJs": true,
 		"jsx": "react",
 		"moduleResolution": "node",
 		"forceConsistentCasingInFileNames": true,
@@ -28,6 +28,6 @@
 		"strictPropertyInitialization": false,
 		"declaration": true
 	},
-	// "include": ["src"]
-	"exclude": ["node_modules", "dist"]
+	"include": ["src"]
+	// "exclude": ["node_modules", "dist"]
 }

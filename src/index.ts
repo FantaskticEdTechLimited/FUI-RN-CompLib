@@ -20,6 +20,7 @@ import { FHeaderButton } from "./FHeaderButton";
 import { FHeaderButtonTypes } from "./FHeaderButton/types";
 import { FBottomNavBar } from "./FBottomNavBar";
 import { FSearchBar } from "./FSearchBar";
+import { FEmailInputField } from "./FEmailInputField";
 
 export {
 	FButton,
@@ -32,6 +33,7 @@ export {
 	FHeaderButtonTypes,
 	FBottomNavBar,
 	FSearchBar,
+	FEmailInputField,
 	// =====================
 	// Theme
 	// =====================

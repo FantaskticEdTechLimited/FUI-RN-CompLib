@@ -8,9 +8,9 @@ export interface FSearchBarProps extends TextInputProps {
 	//  define FSearchBar container style
 	//  ======================================================
 	containerStyle?: StyleProp<ViewStyle>;
-	//  ======================================================
-	//  *** input area style: use style instead
-	//  ======================================================
+	//  =============================================================
+	//  *** input area style: use style (in TextInputProps) instead
+	//  =============================================================
 	searchIconProps?: FSearchBarIconStyleProps;
     clearIconProps?: FSearchBarIconStyleProps;
 	renderInputFieldState?: (state: FSearchBarStateProps) => void;

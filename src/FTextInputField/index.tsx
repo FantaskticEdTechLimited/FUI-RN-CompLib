@@ -1,5 +1,9 @@
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
-import { FFontTypes } from "@fantaskticedtechlimited/fui-rn-fontlib";
+import {
+	FFontFamilyNames,
+	FFontTypes,
+	FFontWeight,
+} from "@fantaskticedtechlimited/fui-rn-fontlib";
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Pressable, TextInput, View } from "react-native";
@@ -14,6 +18,7 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 	const { theme } = FUseTheme();
 	const ref = useRef<TextInput>(null);
 	const disabled = props.accessibilityState?.disabled || props.disabled;
+
 	const styleProps: FTextInputFieldStyleProps = {
 		props: props,
 		isTriggered: isTriggered,
@@ -21,24 +26,45 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 		theme: theme,
 		disabled: disabled!,
 	};
+
 	const labelTextStyleProps = props.multiline
 		? isFilled || isTriggered
-			? FFontTypes.FDefaultFonts.Text()
-			: FFontTypes.FDefaultFonts.Small_Title()
+			? FFontTypes.FDefaultFonts.Text({
+					lineHeight: 16,
+			  })
+			: FFontTypes.FDefaultFonts.Small_Title({
+					fontFamily: FFontFamilyNames.POPPINS,
+					fontWeight: FFontWeight.MEDIUM,
+			  })
 		: isFilled || isTriggered
-		? FFontTypes.FDefaultFonts.Text()
-		: FFontTypes.FDefaultFonts.Large_Text();
+		? FFontTypes.FDefaultFonts.Text({
+				lineHeight: 16,
+		  })
+		: FFontTypes.FDefaultFonts.Large_Text({
+				lineHeight: 20,
+		  });
+
 	const inputTextStyleProps = props.multiline
-		? FFontTypes.FDefaultFonts.Small_Title()
-		: FFontTypes.FDefaultFonts.Large_Text();
+		? FFontTypes.FDefaultFonts.Small_Title({
+				fontFamily: FFontFamilyNames.POPPINS,
+				fontWeight: FFontWeight.MEDIUM,
+		  })
+		: FFontTypes.FDefaultFonts.Large_Text({
+				lineHeight: 20,
+		  });
+
 	const [numberOfLines, setNumberOfLines] = useState<number>();
+
 	const valueLength =
 		props.value === undefined || props.value === ""
 			? "0"
 			: props.value && props.value.length;
 
 	useEffect(() => {
-		if (isTriggered && ref.current) ref.current.focus();
+		if (isTriggered && ref.current) {
+			ref.current.focus();
+			setIsFilled(false);
+		}
 	}, [isTriggered]);
 
 	useEffect(() => {
@@ -81,19 +107,18 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 						{...props.labelProps}
 					/>
 				)}
-				{(isTriggered ||
-					isFilled ||
-					!props.label ||
-					!props.labelProps?.children) && (
+				{!(
+					(props.label || props.labelProps?.children) &&
+					!isTriggered &&
+					!isFilled
+				) && (
 					<TextInput
 						ref={ref}
 						{...props}
 						style={[
 							props.style, //  input area style
 							props.font ?? inputTextStyleProps,
-							{
-								color: FColorTypes.PRIMARY_BLACK,
-							},
+							styles(styleProps).FTextInputFieldInputDiv,
 						]}
 						multiline={props.multiline}
 						maxLength={props.maxLength}

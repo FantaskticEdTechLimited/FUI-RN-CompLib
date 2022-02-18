@@ -8,12 +8,12 @@ export const FSearchBarIcon = (props: FSearchBarIconProps) => {
 		height: "18",
 		viewBox: "0 0 18 18",
 		fill: "none",
-		onPress: props.onPress ?? props.iconProps?.svgProps?.onPress,
-		style: props.style ?? props.iconProps?.svgProps?.style,
+		onPress: props.iconProps?.svgProps?.onPress ?? props.onPress,
+		style: props.iconProps?.svgProps?.style ?? props.style,
 		...props.iconProps?.svgProps,
 	};
 	const PathProps: PathProps = {
-		stroke: props.strokeColor ?? props.iconProps?.pathProps?.stroke,
+		stroke: props.iconProps?.pathProps?.stroke ?? props.strokeColor,
 		strokeWidth: "1.2",
 		strokeLinecap: "round",
 		strokeLinejoin: "round",

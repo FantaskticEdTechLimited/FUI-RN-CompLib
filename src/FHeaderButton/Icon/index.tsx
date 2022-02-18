@@ -12,7 +12,7 @@ export const FHeaderButtonIcon = (props: FHeaderButtonIconProps) => {
 		...props.iconProps?.svgProps,
 	};
 	const PathProps: PathProps = {
-		stroke: props.theme.mainThemeColor,
+		stroke: props.iconProps?.pathProps?.stroke ?? props.theme.mainThemeColor,
 		strokeWidth: "1.2",
 		strokeLinecap: "round",
 		strokeLinejoin: "round",

@@ -14,9 +14,9 @@ export interface FTextInputFieldProps extends TextInputProps {
 	//  define FTextInputField div (label + input area) style
 	//  ======================================================
 	divStyle?: StyleProp<ViewStyle>;
-	//  ======================================================
-	//  *** input area style: use style instead
-	//  ======================================================
+	//  =============================================================
+	//  *** input area style: use style (in TextInputProps) instead
+	//  =============================================================
 	renderInputFieldState?: (state: FTextInputFieldStateProps) => void;
 	labelProps?: FTextProps;
 	wordcountProps?: FTextProps;

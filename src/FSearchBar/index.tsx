@@ -15,7 +15,10 @@ export const FSearchBar = (props: FSearchBarProps) => {
 	const disabled = props.accessibilityState?.disabled || props.disabled;
 
 	useEffect(() => {
-		if (isTriggered && ref.current) ref.current.focus();
+		if (isTriggered && ref.current) {
+			ref.current.focus();
+			setIsFilled(false);
+		}
 	}, [isTriggered]);
 
 	return (

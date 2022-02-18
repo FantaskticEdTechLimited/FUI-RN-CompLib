@@ -16,7 +16,9 @@ export const styles = (
 			display: "flex",
 			flexDirection: "row",
 			alignItems: "center",
-			borderColor: isTriggered ? theme.mainThemeColor : undefined,
-			borderWidth: isTriggered ? 2 : 0,
+			borderColor: isTriggered
+				? theme.mainThemeColor
+				: FColorTypes.PRIMARY_LIGHT,
+			borderWidth: 2,
 		},
 	});

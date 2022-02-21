@@ -1,6 +1,6 @@
 {
   "name": "@fantaskticedtechlimited/fui-rn-complib",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Fantasktic UI React Native Component Library",
   "repository": "https://github.com/FantaskticEdTechLimited/FUI-RN-CompLib.git",
   "author": "pakmatthew",
@@ -41,6 +41,6 @@
   },
   "dependencies": {
     "@fantaskticedtechlimited/fui-rn-colorlib": "^2.0.0",
-    "@fantaskticedtechlimited/fui-rn-fontlib": "^3.4.0"
+    "@fantaskticedtechlimited/fui-rn-fontlib": "^3.5.0"
   }
 }

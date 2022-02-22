@@ -1069,10 +1069,10 @@
   resolved "https://npm.pkg.github.com/download/@fantaskticedtechlimited/fui-rn-colorlib/2.0.0/e2587db0938ed862d8187ad0a3857318f55237ddadba069fbf47e2a4f7e163c3#d63f986a3d735b77ea8f4179c9335ebd1fb11751"
   integrity sha512-dK2St+e/+PofgMQOZ6nSI1/g6fBXpET2f+E1iuvea90SIsGBftoR4SXNj5HJxW2g1eIsASTXbbnQ4FLbQEZvHA==
 
-"@fantaskticedtechlimited/fui-rn-fontlib@^3.4.0":
-  version "3.4.0"
-  resolved "https://npm.pkg.github.com/download/@fantaskticedtechlimited/fui-rn-fontlib/3.4.0/49dbb5ee0844e2bfcdaded21683b5e42f19c37bc587622963cae7ac15bf04069#7394976504263d951438d4e2c0f55e4d5733c356"
-  integrity sha512-g8ep3HhEPGes6gA9yGvsWdWoOJW+0wPkr8xG+6tN/RlW3npU9BOrmzvYJF0+S5mrWFUpnfpc+loPq1jT5xHgpA==
+"@fantaskticedtechlimited/fui-rn-fontlib@^3.5.0":
+  version "3.5.0"
+  resolved "https://npm.pkg.github.com/download/@fantaskticedtechlimited/fui-rn-fontlib/3.5.0/5a95d771c125d08db01c72ad3b0b4746487776e63f854824d09e3004d81cd047#dff2765228d9c2f77676f65baf99a313ea48fd9c"
+  integrity sha512-4lLQiXEVbB60YaVWGgWHspxxr+OMfW7Q7NqCnwsEDYz10cUjtSI8zeT7EsAosUhLjIKcW85uhhLosKV1FbY+sA==
   dependencies:
     expo-font "^10.0.5"
 

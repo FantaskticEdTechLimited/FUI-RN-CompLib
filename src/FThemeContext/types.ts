@@ -3,7 +3,7 @@ export interface FTheme {
 	subThemeColor: string;
 }
 
-export type FThemeContextType = {
+export type FThemeContextProps = {
 	theme: FTheme;
 	setTheme: (theme: FTheme) => void;
 };

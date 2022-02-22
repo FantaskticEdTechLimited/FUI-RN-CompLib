@@ -7,7 +7,7 @@ import { FButton, FButtonTypes } from "..";
 
 export const FBottomNavBar = (props: FBottomNavBarProps) => {
 	return (
-		<View style={[props.style, styles(props.disabled!).FBottomNavBarContainer]}>
+		<View style={[styles(props.disabled!).FBottomNavBarContainer, props.style]}>
 			{props.customChildren ?? (
 				<>
 					{props.customLeadingComponent ?? (

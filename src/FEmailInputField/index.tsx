@@ -1,7 +1,7 @@
 import { styles } from "./styles";
 import { FEmailInputFieldProps, FEmailInputFieldStyleProps } from "./types";
 import React, { useEffect, useRef, useState } from "react";
-import { Pressable, TextInput, View } from "react-native"; 
+import { Pressable, TextInput, View } from "react-native";
 import { FFontTypes } from "@fantaskticedtechlimited/fui-rn-fontlib";
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { FEmailInputFieldIcon } from "./Icon";
@@ -47,12 +47,12 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 	return (
 		<View
 			style={[
-				props.containerStyle,
 				styles(styleProps).FEmailInputFieldContainer,
+				props.containerStyle,
 			]}
 		>
 			<Pressable
-				style={[props.divStyle, styles(styleProps).FEmailInputFieldDiv]}
+				style={[styles(styleProps).FEmailInputFieldDiv, props.divStyle]}
 				onPress={() => !disabled && setIsTriggered(true)}
 				disabled={disabled}
 			>
@@ -73,13 +73,13 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 					ref={ref}
 					{...props}
 					style={[
-						props.style, //  input area style
 						props.font ?? FFontTypes.FDefaultFonts.Large_Text(),
 						{
 							color: FColorTypes.PRIMARY_BLACK,
 							flex: 1,
 							paddingTop: 2,
 						},
+						props.style, //  input area style
 					]}
 					placeholder={props.placeholder ?? "Your Email"}
 					placeholderTextColor={

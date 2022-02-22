@@ -24,8 +24,8 @@ export const FSearchBar = (props: FSearchBarProps) => {
 	return (
 		<Pressable
 			style={[
-				props.containerStyle,
 				styles(disabled!, isTriggered, theme).FSearchBarContainer,
+				props.containerStyle,
 			]}
 			onPress={() => !disabled && setIsTriggered(true)}
 			disabled={disabled}
@@ -46,13 +46,13 @@ export const FSearchBar = (props: FSearchBarProps) => {
 				ref={ref}
 				{...props}
 				style={[
-					props.style, //  input area style
 					props.font ?? FFontTypes.FDefaultFonts.Text(),
 					{
 						color: FColorTypes.PRIMARY_BLACK,
 						flex: 1,
 						paddingTop: 2,
 					},
+					props.style, //  input area style
 				]}
 				placeholder={props.placeholder ?? "Search"}
 				placeholderTextColor={

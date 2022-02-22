@@ -3,12 +3,8 @@ import { FButtonTypes, FButtonProps } from "./FButton/types";
 import { FDismissKeyboard } from "./FDismissKeyboard";
 import { FText } from "./FText";
 import { FTextInputField } from "./FTextInputField";
-import {
-	FDefaultThemeContext,
-	FThemeContext,
-	FUseTheme,
-} from "./FThemeContext";
-import { FTheme, FThemeContextType } from "./FThemeContext/types";
+import { WithFUIThemeContext, FUseTheme } from "./FThemeContext";
+import { FTheme } from "./FThemeContext/types";
 import {
 	FNullable,
 	FOnCallBackFuntion,
@@ -37,11 +33,9 @@ export {
 	// =====================
 	// Theme
 	// =====================
-	FDefaultThemeContext,
-	FThemeContext,
+	WithFUIThemeContext,
 	FUseTheme,
 	FTheme,
-	FThemeContextType,
 	// =====================
 	// Global Types
 	// =====================

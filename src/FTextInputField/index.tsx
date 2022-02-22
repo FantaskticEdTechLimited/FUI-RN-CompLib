@@ -7,8 +7,8 @@ import {
 import React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Pressable, TextInput, View } from "react-native";
+import { FUseTheme } from "..";
 import { FText } from "../FText";
-import { FUseTheme } from "../FThemeContext";
 import { styles } from "./styles";
 import { FTextInputFieldProps, FTextInputFieldStyleProps } from "./types";
 
@@ -83,12 +83,12 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 	return (
 		<View
 			style={[
-				props.containerStyle,
 				styles(styleProps).FTextInputFieldContainer,
+				props.containerStyle,
 			]}
 		>
 			<Pressable
-				style={[props.divStyle, styles(styleProps).FTextInputFieldDiv]}
+				style={[styles(styleProps).FTextInputFieldDiv, props.divStyle]}
 				onPress={() => !disabled && setIsTriggered(true)}
 				disabled={disabled}
 			>
@@ -116,9 +116,9 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 						ref={ref}
 						{...props}
 						style={[
-							props.style, //  input area style
 							props.font ?? inputTextStyleProps,
 							styles(styleProps).FTextInputFieldInputDiv,
+							props.style, //  input area style
 						]}
 						multiline={props.multiline}
 						maxLength={props.maxLength}
@@ -169,7 +169,7 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 							? FColorTypes.PRIMARY_BLACK
 							: FColorTypes.PRIMARY_GREY
 					}
-					style={[props.wordcountProps?.style, { textAlign: "right" }]}
+					style={[{ textAlign: "right" }, props.wordcountProps?.style]}
 					{...props.wordcountProps}
 				>
 					{props.wordcountProps?.children ??

@@ -10,8 +10,8 @@ export const FHeaderButton = (props: FHeaderButtonProps) => {
 	return (
 		<Pressable
 			style={[
-				props.style,
 				styles(theme, props.disabled!).FHeaderButtonContainer,
+				props.style,
 			]}
 			onPress={props.disabled ? undefined : props.onPress}
 		>

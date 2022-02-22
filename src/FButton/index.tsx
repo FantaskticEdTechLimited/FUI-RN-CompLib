@@ -11,7 +11,7 @@ export const FButton = (props: FButtonProps) => {
 	const { theme } = FUseTheme();
 	return (
 		<Pressable
-			style={[props.style, styles(theme, props).FButtonContainer]}
+			style={[styles(theme, props).FButtonContainer, props.style]}
 			onPress={props.disabled ? undefined : props.onPress}
 		>
 			{props.customChildren ?? (

@@ -28,9 +28,9 @@ export const FButton = (props: FButtonProps) => {
 						}
 						font={props.labelProps?.font ?? FFontTypes.FDefaultFonts.Text()}
 						style={[
-							props.labelProps?.style,
 							//for text to be at the center
-							{ paddingTop: 2 },
+							{ paddingTop: props.type !== FButtonTypes.TEXT ? 2 : 0 },
+							props.labelProps?.style,
 						]}
 						children={
 							props.label ?? props.labelProps?.children ?? "Button_Text"

@@ -5,6 +5,7 @@ import { FDismissKeyboardProps } from "./types";
 export const FDismissKeyboard = (props: FDismissKeyboardProps) => {
 	return (
 		<TouchableWithoutFeedback
+			style={props.style}
 			onPress={() => Keyboard.dismiss()}
 			children={props.children}
 		/>

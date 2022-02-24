@@ -7,9 +7,10 @@ export interface FEmailInputFieldProps extends TextInputProps {
 	disabled?: boolean;
 	font?: TextStyle;
 	//  =============================================================
-	//  validate email and render custom warning label
+	//  validate email and render result
 	//  =============================================================
 	autoValidateEmail?: boolean;
+	renderAutoValidationResult?: (isValid: boolean) => void;
 	renderCustomWarningLabel?: (isValid: boolean) => ReactNode;
 	//  =============================================================
 	//  =============================================================
@@ -24,6 +25,7 @@ export interface FEmailInputFieldProps extends TextInputProps {
 	//  *** input area style: use style (in TextInputProps) instead
 	//  =============================================================
 	emailIconProps?: FEmailInputFieldIconStyleProps;
+	// warningLabelProps?: 
 	renderInputFieldState?: (state: FEmailInputFieldStateProps) => void;
 }
 

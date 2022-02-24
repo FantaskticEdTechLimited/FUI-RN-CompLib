@@ -13,6 +13,7 @@ export const FText = (props: FTextProps) => {
 				},
 				props.style,
 			]}
+			onPress={props.onPress}
 			children={props.children ?? "Text"}
 		/>
 	);

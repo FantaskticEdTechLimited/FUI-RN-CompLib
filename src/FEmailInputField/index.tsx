@@ -35,6 +35,8 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 		const regx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 		const isValid = regx.test(email);
 		setIsValidEmail(isValid);
+		props.renderAutoValidationResult &&
+			props.renderAutoValidationResult(isValid);
 	};
 
 	const handleEmailInput = (value: string) => {
@@ -109,7 +111,7 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 			</Pressable>
 			{(props.renderCustomWarningLabel &&
 				props.renderCustomWarningLabel(isValidEmail)) ??
-				(isFilled && !isValidEmail && (
+				(isFilled && !isValidEmail && props.autoValidateEmail && (
 					<FText
 						font={warningLabelProps}
 						color={FColorTypes.SECONDARY_RED}

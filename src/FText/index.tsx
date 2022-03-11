@@ -1,6 +1,7 @@
 import { Text } from "react-native";
 import { FTextProps } from "./types";
 import React from "react";
+import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 
 export const FText = (props: FTextProps) => {
 	return (
@@ -8,7 +9,7 @@ export const FText = (props: FTextProps) => {
 			style={[
 				props.font,
 				{
-					color: props.color,
+					color: props.color ?? FColorTypes.PRIMARY_BLACK,
 					flexShrink: props.flexShrink,
 				},
 				props.style,

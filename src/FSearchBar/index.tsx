@@ -2,7 +2,7 @@ import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { FFontTypes } from "@fantaskticedtechlimited/fui-rn-fontlib";
 import React, { useEffect, useRef, useState } from "react";
 import { Pressable, TextInput } from "react-native";
-import { FUseTheme } from "..";
+import { FRWDScaleCalculator, FUseTheme } from "..";
 import { FSearchBarIcon } from "./Icon";
 import { styles } from "./styles";
 import { FSearchBarProps } from "./types";
@@ -39,7 +39,7 @@ export const FSearchBar = (props: FSearchBarProps) => {
 						? FColorTypes.PRIMARY_BLACK
 						: FColorTypes.PRIMARY_GREY
 				}
-				style={{ marginRight: 4 }}
+				style={{ marginRight: FRWDScaleCalculator(4) }}
 				iconProps={props.searchIconProps}
 			/>
 			<TextInput
@@ -50,7 +50,6 @@ export const FSearchBar = (props: FSearchBarProps) => {
 					{
 						color: FColorTypes.PRIMARY_BLACK,
 						flex: 1,
-						paddingTop: 2,
 					},
 					props.style, //  input area style
 				]}
@@ -87,7 +86,7 @@ export const FSearchBar = (props: FSearchBarProps) => {
 					props.onChangeText && props.onChangeText("");
 				}}
 				style={{
-					marginLeft: 4,
+					marginLeft: FRWDScaleCalculator(4),
 					display:
 						props.value === undefined || props.value === "" ? "none" : "flex",
 				}}

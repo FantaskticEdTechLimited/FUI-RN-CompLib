@@ -7,7 +7,7 @@ export enum FButtonTypes {
 	PRIMARY = "Primary",
 	SECONDARY = "Secondary",
 	OUTLINE = "Outline",
-	TEXT = "Text",
+	TEXT = "Text", // alternative: FText with onPress funciton
 }
 
 export interface FButtonProps {

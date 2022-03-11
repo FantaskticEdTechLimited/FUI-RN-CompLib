@@ -29,29 +29,21 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 
 	const labelTextStyleProps = props.multiline
 		? isFilled || isTriggered
-			? FFontTypes.FDefaultFonts.Text({
-					lineHeight: 16,
-			  })
+			? FFontTypes.FDefaultFonts.Text()
 			: FFontTypes.FDefaultFonts.Small_Title({
 					fontFamily: FFontFamilyNames.POPPINS,
 					fontWeight: FFontWeight.MEDIUM,
 			  })
 		: isFilled || isTriggered
-		? FFontTypes.FDefaultFonts.Text({
-				lineHeight: 16,
-		  })
-		: FFontTypes.FDefaultFonts.Large_Text({
-				lineHeight: 20,
-		  });
+		? FFontTypes.FDefaultFonts.Text()
+		: FFontTypes.FDefaultFonts.Large_Text();
 
 	const inputTextStyleProps = props.multiline
 		? FFontTypes.FDefaultFonts.Small_Title({
 				fontFamily: FFontFamilyNames.POPPINS,
 				fontWeight: FFontWeight.MEDIUM,
 		  })
-		: FFontTypes.FDefaultFonts.Large_Text({
-				lineHeight: 20,
-		  });
+		: FFontTypes.FDefaultFonts.Large_Text();
 
 	const [numberOfLines, setNumberOfLines] = useState<number>();
 
@@ -113,7 +105,7 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 					!isFilled
 				) && (
 					<TextInput
-						ref={ref}
+						ref={ref} 
 						{...props}
 						style={[
 							props.font ?? inputTextStyleProps,

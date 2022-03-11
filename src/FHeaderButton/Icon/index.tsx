@@ -1,12 +1,13 @@
 import React from "react";
 import Svg, { Path, PathProps, SvgProps } from "react-native-svg";
+import { FRWDScaleCalculator } from "../..";
 import { FHeaderButtonTypes } from "../types";
 import { FHeaderButtonIconProps } from "./types";
 
 export const FHeaderButtonIcon = (props: FHeaderButtonIconProps) => {
 	const SvgProps: SvgProps = {
-		width: "16",
-		height: "16",
+		width: FRWDScaleCalculator(16),
+		height: FRWDScaleCalculator(16),
 		viewBox: "0 0 16 16",
 		fill: "none",
 		...props.iconProps?.svgProps,

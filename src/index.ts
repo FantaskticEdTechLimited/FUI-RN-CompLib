@@ -2,6 +2,7 @@ import { FButton } from "./FButton";
 import { FButtonTypes, FButtonProps } from "./FButton/types";
 import { FDismissKeyboard } from "./FDismissKeyboard";
 import { FText } from "./FText";
+import { FTextProps } from "./FText/types";
 import { FTextInputField } from "./FTextInputField";
 import { WithFUIThemeContext, FUseTheme } from "./FThemeContext";
 import { FTheme } from "./FThemeContext/types";
@@ -18,6 +19,8 @@ import { FBottomNavBar } from "./FBottomNavBar";
 import { FSearchBar } from "./FSearchBar";
 import { FEmailInputField } from "./FEmailInputField";
 import { FAvoidKeyboardOverlap } from "./FAvoidKeyboardOverlap";
+import { FRWDScaleCalculator } from "./utils/useRWDScale";
+import { FBottomSheet } from "./FBottomSheet";
 
 export {
 	FButton,
@@ -25,6 +28,7 @@ export {
 	FButtonProps,
 	FDismissKeyboard,
 	FText,
+	FTextProps,
 	FTextInputField,
 	FHeaderButton,
 	FHeaderButtonTypes,
@@ -32,12 +36,17 @@ export {
 	FSearchBar,
 	FEmailInputField,
 	FAvoidKeyboardOverlap,
+	FBottomSheet,
 	// =====================
 	// Theme
 	// =====================
 	WithFUIThemeContext,
 	FUseTheme,
 	FTheme,
+	// =====================
+	// Utils
+	// =====================
+	FRWDScaleCalculator,
 	// =====================
 	// Global Types
 	// =====================

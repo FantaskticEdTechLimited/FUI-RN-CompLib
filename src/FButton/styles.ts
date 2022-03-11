@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { FTheme } from "..";
+import { FRWDScaleCalculator, FTheme } from "..";
 import { FButtonProps, FButtonTypes } from "./types";
 
 export const styles = (theme: FTheme, props: FButtonProps) =>
@@ -9,8 +9,8 @@ export const styles = (theme: FTheme, props: FButtonProps) =>
 			flexDirection: "row",
 			alignItems: "center",
 			justifyContent: "center",
-			paddingVertical: 8,
-			paddingHorizontal: 12,
+			paddingVertical: FRWDScaleCalculator(8),
+			paddingHorizontal: FRWDScaleCalculator(12),
 			borderRadius: 4,
 			textAlign: "center",
 			opacity: props.disabled ? 0.4 : 1,

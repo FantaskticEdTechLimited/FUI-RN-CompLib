@@ -1064,10 +1064,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@fantaskticedtechlimited/fui-rn-colorlib@^2.1.0":
-  version "2.1.0"
-  resolved "https://npm.pkg.github.com/download/@fantaskticedtechlimited/fui-rn-colorlib/2.1.0/f9c2c7a69e1b346e8512f474e15db85837f9297e6d49c10fb9f49e063a9e1376#413d8b9a032540bea73a818dfa5375afb9ecd84a"
-  integrity sha512-0nWFrOTIetJbpz9ELNUmS46MgIL89CHw50uaGf4Z+tiR/TXlgRWUjQ72r5Th7646P6qsw5fj55J/P7nxui/DrA==
+"@fantaskticedtechlimited/fui-rn-colorlib@^2.2.0":
+  version "2.2.0"
+  resolved "https://npm.pkg.github.com/download/@fantaskticedtechlimited/fui-rn-colorlib/2.2.0/0e323a0e13046a5790a3571bee44c3da243d92e80b6aac66da6132f7a4c6426e#5472224da21aaa976ae50db68754688ccfc4d5d3"
+  integrity sha512-98ipXKZRtXH49IxXf8e+kF6iYipM41gOt7vsBBgdsQHshiYMZYhn29vItApkvI4pv4XE9nSrXU/c733TGs4fwA==
 
 "@fantaskticedtechlimited/fui-rn-fontlib@^3.6.3":
   version "3.6.3"

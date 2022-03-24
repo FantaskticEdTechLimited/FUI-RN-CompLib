@@ -21,6 +21,7 @@ import { FEmailInputField } from "./FEmailInputField";
 import { FAvoidKeyboardOverlap } from "./FAvoidKeyboardOverlap";
 import { FRWDScaleCalculator } from "./utils/useRWDScale";
 import { FBottomSheet } from "./FBottomSheet";
+import { FPopUp } from "./FPopUp";
 
 export {
 	FButton,
@@ -37,6 +38,7 @@ export {
 	FEmailInputField,
 	FAvoidKeyboardOverlap,
 	FBottomSheet,
+	FPopUp,
 	// =====================
 	// Theme
 	// =====================

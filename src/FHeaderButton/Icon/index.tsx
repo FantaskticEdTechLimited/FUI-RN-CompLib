@@ -59,6 +59,20 @@ export const FHeaderButtonIcon = (props: FHeaderButtonIconProps) => {
 						/>
 					</>
 				);
+			case FHeaderButtonTypes.FILTER:
+				return (
+					<>
+						<Path d="M2.66669 13.9999V9.33325" {...PathProps} />
+						<Path d="M2.66669 6.66667V2" {...PathProps} />
+						<Path d="M8 14V8" {...PathProps} />
+						<Path d="M8 5.33333V2" {...PathProps} />
+						<Path d="M13.3333 14.0001V10.6667" {...PathProps} />
+						<Path d="M13.3333 8V2" {...PathProps} />
+						<Path d="M0.666687 9.33325H4.66669" {...PathProps} />
+						<Path d="M6 5.33325H10" {...PathProps} />
+						<Path d="M11.3333 10.6667H15.3333" {...PathProps} />
+					</>
+				);
 			default:
 				return <></>;
 		}

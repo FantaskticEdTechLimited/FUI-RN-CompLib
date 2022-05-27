@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { StyleProp, TextInputProps, TextStyle, ViewStyle } from "react-native";
-import { PathProps, SvgProps } from "react-native-svg";
 import { FTheme } from "..";
+import { FPasswordInputFieldIconProps } from "./icons/types";
 
 export type ModifiedTextInputProps = Pick<
 	TextInputProps,
@@ -16,47 +16,41 @@ export type ModifiedTextInputProps = Pick<
 	| "style"
 >;
 
-export interface FEmailInputFieldProps extends ModifiedTextInputProps {
+export interface FPasswordInputFieldProps extends ModifiedTextInputProps {
 	disabled?: boolean;
 	font?: TextStyle;
+	showPassword?: boolean;
+	invalidPassword?: boolean;
+	renderCustomWarningLabel?: ReactNode;
 	//  =============================================================
-	//  validate email and render result
+	leadingIcon?: ReactNode;
+	actionIcon?: ReactNode;
 	//  =============================================================
-	autoValidateEmail?: boolean;
-	renderAutoValidationResult?: (isValid: boolean) => void;
-	renderCustomWarningLabel?: (isValid?: boolean) => ReactNode;
-	//  =============================================================
-	//  =============================================================
-	//  define FEmailInputField container (with warning label) style
+	//  define FPasswordInputField container (with warning label) style
 	//  =============================================================
 	containerStyle?: StyleProp<ViewStyle>;
 	//  =============================================================
-	//  define FEmailInputField div style
+	//  define FPasswordInputField div style
 	//  =============================================================
 	divStyle?: StyleProp<ViewStyle>;
 	//  =============================================================
 	//  *** input area style: use style (in TextInputProps) instead
 	//  =============================================================
-	emailIconProps?: FEmailInputFieldIconStyleProps;
-	// warningLabelProps?: 
-	renderInputFieldState?: (state: FEmailInputFieldStateProps) => void;
+	lockIconProps?: FPasswordInputFieldIconProps;
+	eyeIconProps?: FPasswordInputFieldIconProps;
+	eyeOffIconProps?: FPasswordInputFieldIconProps;
+	renderInputFieldState?: (state: FPasswordInputFieldStateProps) => void;
 }
 
-interface FEmailInputFieldStateProps {
+interface FPasswordInputFieldStateProps {
 	isTriggered: boolean;
 	isFilled: boolean;
 }
 
-export interface FEmailInputFieldStyleProps {
+export interface FPasswordInputFieldStyleProps {
 	disabled: boolean;
 	isTriggered: boolean;
 	isFilled: boolean;
-	autoValidateEmail: boolean;
-	isValid: boolean;
+	invalidPassword: boolean;
 	theme: FTheme;
-}
-
-export interface FEmailInputFieldIconStyleProps {
-	svgProps?: SvgProps;
-	pathProps?: PathProps;
 }

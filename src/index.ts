@@ -22,6 +22,7 @@ import { FAvoidKeyboardOverlap } from "./FAvoidKeyboardOverlap";
 import { FRWDScaleCalculator } from "./utils/useRWDScale";
 import { FBottomSheet } from "./FBottomSheet";
 import { FPopUp } from "./FPopUp";
+import { FPasswordInputField } from "./FPasswordInputField";
 
 export {
 	FButton,
@@ -39,6 +40,7 @@ export {
 	FAvoidKeyboardOverlap,
 	FBottomSheet,
 	FPopUp,
+	FPasswordInputField,
 	// =====================
 	// Theme
 	// =====================

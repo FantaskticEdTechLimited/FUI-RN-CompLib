@@ -13,7 +13,7 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 	const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
 	const { theme } = FUseTheme();
 	const ref = useRef<TextInput>(null);
-	const disabled = props.accessibilityState?.disabled || props.disabled;
+	const disabled = props.disabled;
 	const styleProps: FEmailInputFieldStyleProps = {
 		disabled: disabled!,
 		isTriggered: isTriggered,
@@ -40,9 +40,11 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 	};
 
 	const handleEmailInput = (value: string) => {
-		props.onChangeText && props.onChangeText(value);
-		if (props.autoValidateEmail) {
-			handleEmailValidation(value);
+		if (!disabled) {
+			props.onChangeText && props.onChangeText(value);
+			if (props.autoValidateEmail) {
+				handleEmailValidation(value);
+			}
 		}
 	};
 
@@ -82,6 +84,7 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 						},
 						props.style, //  input area style
 					]}
+					showSoftInputOnFocus={!disabled}
 					placeholder={props.placeholder ?? "Your Email"}
 					placeholderTextColor={
 						props.placeholderTextColor ?? FColorTypes.PRIMARY_GREY
@@ -95,7 +98,7 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 							: setIsFilled(true);
 						ref.current?.focus();
 					}}
-					onFocus={() => setIsTriggered(true)}
+					onFocus={() => !disabled && setIsTriggered(true)}
 					onBlur={() => {
 						setIsTriggered(false);
 						props.value === undefined || props.value === ""
@@ -108,9 +111,12 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 					underlineColorAndroid={props.underlineColorAndroid ?? "transparent"}
 				/>
 			</Pressable>
-			{(props.renderCustomWarningLabel &&
-				props.renderCustomWarningLabel(isValidEmail)) ??
-				(isFilled && !isValidEmail && props.autoValidateEmail && (
+			{(!disabled &&
+				props.renderCustomWarningLabel &&
+				props.renderCustomWarningLabel(
+					props.autoValidateEmail ? isValidEmail : undefined
+				)) ??
+				(!disabled && isFilled && !isValidEmail && props.autoValidateEmail && (
 					<FText
 						font={warningLabelProps}
 						color={FColorTypes.SECONDARY_RED}

@@ -6,7 +6,7 @@ export interface FBottomSheetProps {
 	isVisible: boolean;
 	children: ReactNode;
 	onClose?: FOnPressFunction;
-	wrapperStyle?: StyleProp<ViewStyle>;
+	removeSlideAction?: boolean;
 	overlayStyle?: StyleProp<ViewStyle>;
 	containerStyle?: StyleProp<ViewStyle>;
 	indicatorStyle?: StyleProp<ViewStyle>;

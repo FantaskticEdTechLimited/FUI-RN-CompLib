@@ -116,7 +116,7 @@ export const FBottomSheet = (props: FBottomSheetProps) => {
 						width: width - FRWDScaleCalculator(32),
 						height: bottomSheetHeight,
 						bottom: bottom,
-						transform: [{ translateY: pan.y }],
+						transform: [{ translateY: props.removeSlideAction ? 0 : pan.y }],
 					},
 					props.containerStyle,
 				]}

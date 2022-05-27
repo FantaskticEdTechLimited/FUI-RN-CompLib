@@ -6,6 +6,7 @@ export enum FHeaderButtonTypes {
 	BACK = "Back",
 	CLOSE = "Close",
 	MORE = "More",
+	FILTER = "Filter",
 }
 
 export interface FHeaderButtonIconStyleProps {

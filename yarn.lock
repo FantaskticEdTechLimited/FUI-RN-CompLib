@@ -1069,12 +1069,12 @@
   resolved "https://npm.pkg.github.com/download/@fantaskticedtechlimited/fui-rn-colorlib/2.2.0/0e323a0e13046a5790a3571bee44c3da243d92e80b6aac66da6132f7a4c6426e#5472224da21aaa976ae50db68754688ccfc4d5d3"
   integrity sha512-98ipXKZRtXH49IxXf8e+kF6iYipM41gOt7vsBBgdsQHshiYMZYhn29vItApkvI4pv4XE9nSrXU/c733TGs4fwA==
 
-"@fantaskticedtechlimited/fui-rn-fontlib@^3.6.3":
-  version "3.6.3"
-  resolved "https://npm.pkg.github.com/download/@fantaskticedtechlimited/fui-rn-fontlib/3.6.3/252169b7103ee8778b204a794d961f45266d5baf8975b77f13704af1e2728a7d#c907014d3b31d94eee01ea8393b4c2e583099f79"
-  integrity sha512-TOjfo4WJwzqxAqeomitV1EdlIn0QOCykufe2OPLZPeVpbmTP2Qfw34Wpy3s0rlffE7Y45/9NtIAYu5eJRxnEZQ==
+"@fantaskticedtechlimited/fui-rn-fontlib@^3.8.0":
+  version "3.8.0"
+  resolved "https://npm.pkg.github.com/download/@fantaskticedtechlimited/fui-rn-fontlib/3.8.0/cf32780262778bae6f6d9ea251d6457d761f2fb9a8c0b3ff74d9e1c50135785c#bb52b22c1885438f241f2435588faaba5b8e0133"
+  integrity sha512-k+sE1sl1h2MffeTfrc59dEFkyhXsf3hpycLxdyrrGUU/LYQcVE6Fkpj8FenuwHn2cwAtrqvF3ufk0mP4+joeVw==
   dependencies:
-    expo-font "^10.0.5"
+    expo-font "~10.0.4"
 
 "@hapi/hoek@^9.0.0":
   version "9.2.1"
@@ -2521,7 +2521,7 @@ expand-brackets@^2.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-expo-font@^10.0.5:
+expo-font@~10.0.4:
   version "10.0.5"
   resolved "https://registry.npmjs.org/expo-font/-/expo-font-10.0.5.tgz#8010060ec5326b3b462f7a1ac6b232dc4d1a7317"
   integrity sha512-x9YwM0xLkDdSvFjeNbyuh33Q1Hk3uc2jbMuuAN5W2ZVcUZqG0M8GCX/KV/D/7rYqdXKbliQA5r44MyDwZe/XRw==

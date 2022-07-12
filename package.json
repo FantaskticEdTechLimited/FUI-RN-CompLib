@@ -1,6 +1,6 @@
 {
   "name": "@fantaskticedtechlimited/fui-rn-complib",
-  "version": "2.15.7-alpha-1.15",
+  "version": "2.15.7-alpha-1.16",
   "description": "Fantasktic UI React Native Component Library",
   "repository": "https://github.com/FantaskticEdTechLimited/FUI-RN-CompLib.git",
   "author": "pakmatthew",
@@ -26,6 +26,7 @@
     "react-native": "^0.69.1",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~2.2.1",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-reanimated": "~2.8.0",
     "react-native-status-bar-height": "^2.6.0",
     "react-native-svg": "^12.1.1",

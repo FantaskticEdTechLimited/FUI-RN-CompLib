@@ -12,8 +12,9 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 	const [isFilled, setIsFilled] = useState<boolean>(false);
 	const [isValidEmail, setIsValidEmail] = useState<boolean>(false);
 	const { theme } = FUseTheme();
-	const ref = useRef<TextInput>(null);
 	const disabled = props.disabled;
+	const ref = useRef<TextInput>(null);
+	const inputRef = props.ref ?? ref;
 	const styleProps: FEmailInputFieldStyleProps = {
 		disabled: disabled!,
 		isTriggered: isTriggered,
@@ -24,29 +25,27 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 	};
 	const warningLabelProps = FFontTypes.FDefaultFonts.Text();
 
-	useEffect(() => {
-		if (isTriggered && ref.current) {
-			ref.current.focus();
-			setIsFilled(false);
+	const handleEmailValidation = (email: string | undefined) => {
+		if (email) {
+			const regx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+			const isValid = regx.test(email);
+			setIsValidEmail(isValid);
+			props.renderAutoValidationResult &&
+				props.renderAutoValidationResult(isValid);
 		}
-	}, [isTriggered]);
-
-	const handleEmailValidation = (email: string) => {
-		const regx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-		const isValid = regx.test(email);
-		setIsValidEmail(isValid);
-		props.renderAutoValidationResult &&
-			props.renderAutoValidationResult(isValid);
 	};
 
 	const handleEmailInput = (value: string) => {
 		if (!disabled) {
 			props.onChangeText && props.onChangeText(value);
-			if (props.autoValidateEmail) {
-				handleEmailValidation(value);
-			}
 		}
 	};
+
+	useEffect(() => {
+		if (isTriggered && inputRef && inputRef.current) {
+			inputRef.current.focus();
+		}
+	}, [isTriggered]);
 
 	return (
 		<View
@@ -74,17 +73,16 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 					iconProps={props.emailIconProps}
 				/>
 				<TextInput
-					ref={ref}
-					{...props}
+					ref={inputRef}
+					allowFontScaling={props.allowFontScaling ?? false}
 					style={[
 						props.font ?? FFontTypes.FDefaultFonts.Large_Text(),
 						{
 							color: FColorTypes.PRIMARY_BLACK,
 							flex: 1,
 						},
-						props.style, //  input area style
+						props.inputStyle,
 					]}
-					showSoftInputOnFocus={!disabled}
 					placeholder={props.placeholder ?? "Your Email"}
 					placeholderTextColor={
 						props.placeholderTextColor ?? FColorTypes.PRIMARY_GREY
@@ -96,32 +94,53 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 						props.value === undefined || props.value === ""
 							? setIsFilled(false)
 							: setIsFilled(true);
-						ref.current?.focus();
+						handleEmailValidation(props.value);
 					}}
-					onFocus={() => !disabled && setIsTriggered(true)}
+					onFocus={() => {
+						if (!disabled) {
+							setIsFilled(false);
+							setIsTriggered(true);
+							props.onFocus && props.onFocus();
+						}
+					}}
 					onBlur={() => {
-						setIsTriggered(false);
-						props.value === undefined || props.value === ""
-							? setIsFilled(false)
-							: setIsFilled(true);
+						if (!disabled) {
+							setIsTriggered(false);
+							props.value === undefined || props.value === ""
+								? setIsFilled(false)
+								: setIsFilled(true);
+							handleEmailValidation(props.value);
+							props.onBlur && props.onBlur();
+						}
 					}}
 					selectionColor={props.selectionColor ?? theme.mainThemeColor}
+					autoFocus={props.autoFocus ?? false}
+					showSoftInputOnFocus={props.showSoftInputOnFocus ?? !disabled}
+					keyboardType={props.keyboardType ?? "email-address"}
+					autoCapitalize={props.autoCapitalize ?? "none"}
 					autoCorrect={props.autoCorrect ?? false}
-					spellCheck={props.spellCheck ?? false}
 					underlineColorAndroid={props.underlineColorAndroid ?? "transparent"}
+					clearTextOnFocus={props.clearTextOnFocus ?? false}
 				/>
 			</Pressable>
 			{(!disabled &&
-				props.renderCustomWarningLabel &&
-				props.renderCustomWarningLabel(
+				props.customWarningLabel &&
+				props.customWarningLabel(
 					props.autoValidateEmail ? isValidEmail : undefined
 				)) ??
 				(!disabled && isFilled && !isValidEmail && props.autoValidateEmail && (
 					<FText
-						font={warningLabelProps}
-						color={FColorTypes.SECONDARY_RED}
-						style={{ marginTop: FRWDScaleCalculator(4) }}
-						children="Error: Input email is not valid."
+						font={props.warningLabelProps?.font ?? warningLabelProps}
+						color={props.warningLabelProps?.color ?? FColorTypes.SECONDARY_RED}
+						style={[
+							{ marginTop: FRWDScaleCalculator(4) },
+							props.warningLabelProps?.style,
+						]}
+						children={
+							props.warningLabelProps?.children ??
+							"Error: Input email is not valid."
+						}
+						{...props.warningLabelProps}
 					/>
 				))}
 		</View>

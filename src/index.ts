@@ -1,11 +1,23 @@
 import { FButton } from "./FButton";
 import { FButtonTypes, FButtonProps } from "./FButton/types";
-import { FDismissKeyboard } from "./FDismissKeyboard";
 import { FText } from "./FText";
 import { FTextProps } from "./FText/types";
 import { FTextInputField } from "./FTextInputField";
 import { WithFUIThemeContext, FUseTheme } from "./FThemeContext";
 import { FTheme } from "./FThemeContext/types";
+import { FHeaderButton } from "./FHeaderButton";
+import { FHeaderButtonTypes } from "./FHeaderButton/types";
+import { FBottomNavBar } from "./FBottomNavBar";
+import { FSearchBar } from "./FSearchBar";
+import { FEmailInputField } from "./FEmailInputField";
+import { FKeyboardInputView } from "./FKeyboardInputView";
+import { FRWDScaleCalculator } from "./utils/useRWDScale";
+import { FBottomSheet } from "./FBottomSheet";
+import { FPopUp } from "./FPopUp";
+import { FPasswordInputField } from "./FPasswordInputField";
+import { FUserAvatar } from "./FUserAvatar";
+import { FCircularProgress } from "./FCircularProgress";
+// Global types
 import {
 	FNullable,
 	FOnCallBackFuntion,
@@ -13,22 +25,11 @@ import {
 	FOnPressFunction,
 	FOnSubmitFunction,
 } from "./global.types";
-import { FHeaderButton } from "./FHeaderButton";
-import { FHeaderButtonTypes } from "./FHeaderButton/types";
-import { FBottomNavBar } from "./FBottomNavBar";
-import { FSearchBar } from "./FSearchBar";
-import { FEmailInputField } from "./FEmailInputField";
-import { FAvoidKeyboardOverlap } from "./FAvoidKeyboardOverlap";
-import { FRWDScaleCalculator } from "./utils/useRWDScale";
-import { FBottomSheet } from "./FBottomSheet";
-import { FPopUp } from "./FPopUp";
-import { FPasswordInputField } from "./FPasswordInputField";
 
 export {
 	FButton,
 	FButtonTypes,
 	FButtonProps,
-	FDismissKeyboard,
 	FText,
 	FTextProps,
 	FTextInputField,
@@ -37,10 +38,12 @@ export {
 	FBottomNavBar,
 	FSearchBar,
 	FEmailInputField,
-	FAvoidKeyboardOverlap,
+	FKeyboardInputView,
 	FBottomSheet,
 	FPopUp,
 	FPasswordInputField,
+	FUserAvatar,
+	FCircularProgress,
 	// =====================
 	// Theme
 	// =====================

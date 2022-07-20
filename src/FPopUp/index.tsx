@@ -3,9 +3,11 @@ import { Pressable, useWindowDimensions, View } from "react-native";
 import { FBottomNavBar, FRWDScaleCalculator } from "..";
 import { styles } from "./styles";
 import { FPopUpProps } from "./types";
+import { getStatusBarHeight } from "react-native-status-bar-height";
 
 export const FPopUp = (props: FPopUpProps) => {
 	const { width: screenWidth, height: screenHeight } = useWindowDimensions();
+	
 	return (
 		<>
 			{props.isVisible && (
@@ -14,7 +16,7 @@ export const FPopUp = (props: FPopUpProps) => {
 						styles.FPopUp_Overlay_Wrapper,
 						{
 							width: screenWidth,
-							height: screenHeight,
+							height: screenHeight + getStatusBarHeight(),
 						},
 						props.overlayStyle,
 					]}

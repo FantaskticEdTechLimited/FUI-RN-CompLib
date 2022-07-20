@@ -1,107 +1,26 @@
-import React, { useEffect, useRef } from "react";
-import {
-	Animated,
-	Dimensions,
-	Easing,
-	PanResponder,
-	Pressable,
-	View,
-} from "react-native";
+import React from "react";
+import { Dimensions, Pressable, View } from "react-native";
 import { FBottomSheetProps } from "./types";
 import { styles } from "./styles";
+import BottomSheet from "reanimated-bottom-sheet";
+import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
+import { ScrollView } from "react-native-gesture-handler";
 import { getStatusBarHeight } from "react-native-status-bar-height";
-import { FRWDScaleCalculator } from "..";
 
 export const FBottomSheet = (props: FBottomSheetProps) => {
-	const { width, height: screenHeight } = Dimensions.get("window");
-
-	const useAnimatedBottom = () => {
-		const animatedValue = useRef(new Animated.Value(0));
-
-		const bottom = animatedValue.current.interpolate({
-			inputRange: [0, 1],
-			outputRange: [-screenHeight, 0],
-		});
-
-		useEffect(() => {
-			if (props.isVisible) {
-				Animated.timing(animatedValue.current, {
-					toValue: 1,
-					duration: 300,
-					// Accelerate then decelerate - https://cubic-bezier.com/#.28,0,.63,1
-					easing: Easing.bezier(0.28, 0, 0.63, 1),
-					useNativeDriver: false, // 'bottom' is not supported by native animated module
-				}).start();
-			} else {
-				Animated.timing(animatedValue.current, {
-					toValue: 0,
-					duration: 150,
-					// Accelerate - https://easings.net/#easeInCubic
-					easing: Easing.cubic,
-					useNativeDriver: false,
-				}).start();
-			}
-		}, [props.isVisible]);
-
-		return bottom;
-	};
-
-	const bottom = useAnimatedBottom();
-	const bottomSheetHeight = 0.64 * screenHeight;
-	const pan = useRef(new Animated.ValueXY()).current;
-	const slideDownRangeToClose =
-		(screenHeight - FRWDScaleCalculator(16)) * (0.8 - 0.36);
-
-	const panResponder = useRef(
-		PanResponder.create({
-			onMoveShouldSetPanResponder: (_, gestureState) => {
-				//return true if user is swiping, return false if not swiping
-				return !(gestureState.dx === 0 && gestureState.dy === 0);
-			},
-			onPanResponderGrant: () => {
-				pan.setOffset({
-					x: 0,
-					y: 0,
-				});
-			},
-			onPanResponderMove: Animated.event([null, { dx: pan.x, dy: pan.y }], {
-				useNativeDriver: false,
-			}),
-			onPanResponderRelease: () => {
-				const slideDownToClose =
-					parseFloat(JSON.stringify(pan.y)) >= slideDownRangeToClose;
-				if (slideDownToClose) props.onClose && props.onClose();
-				Animated.spring(pan, {
-					toValue: {
-						x: 0,
-						y: slideDownToClose
-							? bottomSheetHeight + FRWDScaleCalculator(16)
-							: 0,
-					},
-					useNativeDriver: false,
-				}).start();
-			},
-		})
-	).current;
-
-	useEffect(() => {
-		if (props.isVisible) {
-			// reset bottom sheet position
-			pan.setValue({ x: 0, y: 0 });
-		}
-	}, [props.isVisible]);
+	const { width, height } = Dimensions.get("window");
 
 	return (
 		<>
-			{props.isVisible && (
+			{props.isVisible && !props.removeOverlay && (
 				<Pressable
 					onPress={props.onClose}
 					style={[
-						styles.FBottomSheet_Overlay_Wrapper,
 						{
 							width: width,
-							height: screenHeight,
-							marginTop: getStatusBarHeight(),
+							height: height + getStatusBarHeight(),
+							backgroundColor: FColorTypes.PRIMARY_BLACK + "80",
+							position: "absolute",
 						},
 						props.overlayStyle,
 					]}
@@ -109,24 +28,49 @@ export const FBottomSheet = (props: FBottomSheetProps) => {
 					<View />
 				</Pressable>
 			)}
-			<Animated.View
-				style={[
-					styles.FBottomSheet_Container,
-					{
-						width: width - FRWDScaleCalculator(32),
-						height: bottomSheetHeight,
-						bottom: bottom,
-						transform: [{ translateY: props.removeSlideAction ? 0 : pan.y }],
-					},
-					props.containerStyle,
-				]}
-				{...panResponder.panHandlers}
-			>
-				<View
-					style={[styles.FBottomSheet_Indicator_Div, props.indicatorStyle]}
+			{props.isVisible && (
+				<BottomSheet
+					snapPoints={props.snapPoints}
+					borderRadius={props.borderRadius ?? 8}
+					renderContent={() => (
+						<View style={[styles.FBottomSheet_Container, props.containerStyle]}>
+							{!props.removeIndicator && (
+								<View
+									style={[
+										styles.FBottomSheet_Indicator_Div,
+										props.indicatorStyle,
+									]}
+								/>
+							)}
+							<ScrollView
+								scrollEnabled={props.scrollDisabled ? false : true}
+								showsHorizontalScrollIndicator={
+									props.showScrollBar ? true : false
+								}
+								showsVerticalScrollIndicator={
+									props.showScrollBar ? true : false
+								}
+								contentContainerStyle={[
+									{
+										flexGrow: 1,
+										display: "flex",
+										flexDirection: "column",
+									},
+									props.contentStyle,
+								]}
+								{...props.scrollViewProps}
+							>
+								{props.children}
+							</ScrollView>
+						</View>
+					)}
+					enabledBottomInitialAnimation={
+						props.behaviorProps?.props.enabledBottomInitialAnimation ?? true
+					}
+					onCloseEnd={props.onClose}
+					{...props.behaviorProps}
 				/>
-				{props.children}
-			</Animated.View>
+			)}
 		</>
 	);
 };

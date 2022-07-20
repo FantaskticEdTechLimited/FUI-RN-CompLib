@@ -7,15 +7,14 @@ import { FFontTypes } from "@fantaskticedtechlimited/fui-rn-fontlib";
 export const FText = (props: FTextProps) => {
 	return (
 		<Text
+			{...props}
 			style={[
-				props.font ?? FFontTypes.FDefaultFonts.Text(), 
+				props.font ?? FFontTypes.FDefaultFonts.Text(),
 				{
 					color: props.color ?? FColorTypes.PRIMARY_BLACK,
-					flexShrink: props.flexShrink,
 				},
 				props.style,
 			]}
-			onPress={props.onPress}
 			children={props.children ?? "Text"}
 		/>
 	);

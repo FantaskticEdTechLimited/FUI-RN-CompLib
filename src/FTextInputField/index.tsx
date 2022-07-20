@@ -17,6 +17,7 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 	const [isFilled, setIsFilled] = useState<boolean>(false);
 	const { theme } = FUseTheme();
 	const ref = useRef<TextInput>(null);
+	const inputRef = props.ref ?? ref;
 	const disabled = props.accessibilityState?.disabled || props.disabled;
 
 	const styleProps: FTextInputFieldStyleProps = {
@@ -53,19 +54,10 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 			: props.value && props.value.length;
 
 	useEffect(() => {
-		if (isTriggered && ref.current) {
-			ref.current.focus();
-			setIsFilled(false);
+		if (isTriggered && inputRef && inputRef.current) {
+			inputRef.current.focus();
 		}
 	}, [isTriggered]);
-
-	useEffect(() => {
-		props.renderInputFieldState &&
-			props.renderInputFieldState({
-				isTriggered: isTriggered,
-				isFilled: isFilled,
-			});
-	}, [isTriggered, isFilled]);
 
 	useEffect(() => {
 		if (props.multiline) setNumberOfLines(1);
@@ -105,12 +97,12 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 					!isFilled
 				) && (
 					<TextInput
-						ref={ref} 
+						ref={inputRef}
 						{...props}
 						style={[
 							props.font ?? inputTextStyleProps,
 							styles(styleProps).FTextInputFieldInputDiv,
-							props.style, //  input area style
+							props.inputStyle,
 						]}
 						multiline={props.multiline}
 						maxLength={props.maxLength}
@@ -125,19 +117,30 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 							props.value === undefined || props.value === ""
 								? setIsFilled(false)
 								: setIsFilled(true);
-							ref.current?.focus();
 						}}
-						onFocus={() => setIsTriggered(true)}
+						onFocus={() => {
+							if (!disabled) {
+								setIsFilled(false);
+								setIsTriggered(true);
+								props.onFocus && props.onFocus();
+							}
+						}}
 						onBlur={() => {
-							setIsTriggered(false);
-							props.value === undefined || props.value === ""
-								? setIsFilled(false)
-								: setIsFilled(true);
+							if (!disabled) {
+								setIsTriggered(false);
+								props.value === undefined || props.value === ""
+									? setIsFilled(false)
+									: setIsFilled(true);
+								props.onBlur && props.onBlur();
+							}
 						}}
 						selectionColor={props.selectionColor ?? theme.mainThemeColor}
+						autoFocus={props.autoFocus ?? false}
+						showSoftInputOnFocus={props.showSoftInputOnFocus ?? !disabled}
+						autoCapitalize={props.autoCapitalize ?? "none"}
 						autoCorrect={props.autoCorrect ?? false}
-						spellCheck={props.spellCheck ?? false}
 						underlineColorAndroid={props.underlineColorAndroid ?? "transparent"}
+						clearTextOnFocus={props.clearTextOnFocus ?? false}
 						numberOfLines={numberOfLines}
 						onContentSizeChange={(e) => {
 							if (props.multiline)

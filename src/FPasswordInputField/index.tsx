@@ -18,6 +18,7 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 	const [showPassword, setShowPassword] = useState<boolean>(false);
 	const { theme } = FUseTheme();
 	const ref = useRef<TextInput>(null);
+	const inputRef = props.ref ?? ref;
 	const disabled = props.disabled;
 	const invalidPassword = props.invalidPassword;
 	const styleProps: FPasswordInputFieldStyleProps = {
@@ -29,9 +30,8 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 	};
 
 	useEffect(() => {
-		if (isTriggered && ref.current) {
-			ref.current.focus();
-			setIsFilled(false);
+		if (isTriggered && inputRef && inputRef.current) {
+			inputRef.current.focus();
 		}
 	}, [isTriggered]);
 
@@ -49,7 +49,6 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 		>
 			<Pressable
 				style={[styles(styleProps).FPasswordInputFieldDiv, props.divStyle]}
-				onPress={() => !disabled && setIsTriggered(true)}
 				disabled={disabled}
 			>
 				{props.leadingIcon ?? (
@@ -67,46 +66,62 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 						{...props.lockIconProps}
 					/>
 				)}
-				<TextInput
-					ref={ref}
-					{...props}
-					style={[
-						props.font ?? FFontTypes.FDefaultFonts.Large_Text(),
-						{
-							color: FColorTypes.PRIMARY_BLACK,
-							flex: 1,
-						},
-						props.style, //  input area style
-					]}
-					showSoftInputOnFocus={!disabled}
-					placeholder={props.placeholder ?? "Your Password"}
-					placeholderTextColor={
-						props.placeholderTextColor ?? FColorTypes.PRIMARY_GREY
-					}
-					secureTextEntry={showPassword ? false : true}
-					value={props.value}
-					onChangeText={(value) =>
-						!disabled && props.onChangeText && props.onChangeText(value)
-					}
-					onSubmitEditing={() => {
-						setIsTriggered(false);
-						props.value === undefined || props.value === ""
-							? setIsFilled(false)
-							: setIsFilled(true);
-						ref.current?.focus();
-					}}
-					onFocus={() => !disabled && setIsTriggered(true)}
-					onBlur={() => {
-						setIsTriggered(false);
-						props.value === undefined || props.value === ""
-							? setIsFilled(false)
-							: setIsFilled(true);
-					}}
-					selectionColor={props.selectionColor ?? theme.mainThemeColor}
-					autoCorrect={props.autoCorrect ?? false}
-					spellCheck={props.spellCheck ?? false}
-					underlineColorAndroid={props.underlineColorAndroid ?? "transparent"}
-				/>
+				<Pressable
+					style={{ flex: 1 }}
+					disabled={disabled}
+					onPress={() => !disabled && setIsTriggered(true)}
+				>
+					<TextInput
+						ref={inputRef}
+						allowFontScaling={props.allowFontScaling ?? false}
+						style={[
+							props.font ?? FFontTypes.FDefaultFonts.Large_Text(),
+							{
+								color: FColorTypes.PRIMARY_BLACK,
+							},
+							props.inputStyle,
+						]}
+						placeholder={props.placeholder ?? "Your Password"}
+						placeholderTextColor={
+							props.placeholderTextColor ?? FColorTypes.PRIMARY_GREY
+						}
+						secureTextEntry={showPassword ? false : true}
+						value={props.value}
+						onChangeText={(value) =>
+							!disabled && props.onChangeText && props.onChangeText(value)
+						}
+						onSubmitEditing={() => {
+							setIsTriggered(false);
+							props.value === undefined || props.value === ""
+								? setIsFilled(false)
+								: setIsFilled(true);
+						}}
+						onFocus={() => {
+							if (!disabled) {
+								setIsFilled(false);
+								setIsTriggered(true);
+								props.onFocus && props.onFocus();
+							}
+						}}
+						onBlur={() => {
+							if (!disabled) {
+								setIsTriggered(false);
+								props.value === undefined || props.value === ""
+									? setIsFilled(false)
+									: setIsFilled(true);
+								props.onBlur && props.onBlur();
+							}
+						}}
+						selectionColor={props.selectionColor ?? theme.mainThemeColor}
+						autoFocus={props.autoFocus ?? false}
+						showSoftInputOnFocus={props.showSoftInputOnFocus ?? !disabled}
+						keyboardType={props.keyboardType}
+						autoCapitalize={props.autoCapitalize ?? "none"}
+						autoCorrect={props.autoCorrect ?? false}
+						underlineColorAndroid={props.underlineColorAndroid ?? "transparent"}
+						clearTextOnFocus={props.clearTextOnFocus ?? false}
+					/>
+				</Pressable>
 				{props.actionIcon ?? showPassword ? (
 					<EyeIcon
 						{...props.eyeIconProps}
@@ -135,7 +150,7 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 					/>
 				)}
 			</Pressable>
-			{!disabled && invalidPassword && props.renderCustomWarningLabel}
+			{props.customWarningLabel}
 		</View>
 	);
 };

@@ -1,6 +1,6 @@
 {
 	"name": "@fantaskticedtechlimited/fui-rn-complib",
-	"version": "2.16.3",
+	"version": "2.16.4",
 	"description": "Fantasktic UI React Native Component Library",
 	"repository": "https://github.com/FantaskticEdTechLimited/FUI-RN-CompLib.git",
 	"author": "pakmatthew",
@@ -42,6 +42,7 @@
 		"output": "lib",
 		"targets": [
 			"commonjs",
+			"module",
 			"typescript"
 		]
 	}

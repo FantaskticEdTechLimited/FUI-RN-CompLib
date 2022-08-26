@@ -96,62 +96,78 @@ export const FTextInputField = (props: FTextInputFieldProps) => {
 					!isTriggered &&
 					!isFilled
 				) && (
-					<TextInput
-						ref={inputRef}
-						{...props}
+					<View
 						style={[
-							props.font ?? inputTextStyleProps,
-							styles(styleProps).FTextInputFieldInputDiv,
-							props.inputStyle,
+							{
+								flex: 1,
+								display: "flex",
+								flexDirection: "row",
+								alignItems: "center",
+							},
+							props.inputAreaStyle,
 						]}
-						multiline={props.multiline}
-						maxLength={props.maxLength}
-						placeholder={props.label ? undefined : props.placeholder ?? "Title"}
-						placeholderTextColor={
-							props.placeholderTextColor ?? FColorTypes.PRIMARY_GREY
-						}
-						value={props.value}
-						onChangeText={props.onChangeText}
-						onSubmitEditing={() => {
-							setIsTriggered(false);
-							props.value === undefined || props.value === ""
-								? setIsFilled(false)
-								: setIsFilled(true);
-						}}
-						onFocus={() => {
-							if (!disabled) {
-								setIsFilled(false);
-								setIsTriggered(true);
-								props.onFocus && props.onFocus();
+					>
+						<TextInput
+							ref={inputRef}
+							{...props}
+							style={[
+								props.font ?? inputTextStyleProps,
+								styles(styleProps).FTextInputFieldInputDiv,
+								props.inputStyle,
+							]}
+							multiline={props.multiline}
+							maxLength={props.maxLength}
+							placeholder={
+								props.label ? undefined : props.placeholder ?? "Title"
 							}
-						}}
-						onBlur={() => {
-							if (!disabled) {
+							placeholderTextColor={
+								props.placeholderTextColor ?? FColorTypes.PRIMARY_GREY
+							}
+							value={props.value}
+							onChangeText={props.onChangeText}
+							onSubmitEditing={() => {
 								setIsTriggered(false);
 								props.value === undefined || props.value === ""
 									? setIsFilled(false)
 									: setIsFilled(true);
-								props.onBlur && props.onBlur();
+							}}
+							onFocus={() => {
+								if (!disabled) {
+									setIsFilled(false);
+									setIsTriggered(true);
+									props.onFocus && props.onFocus();
+								}
+							}}
+							onBlur={() => {
+								if (!disabled) {
+									setIsTriggered(false);
+									props.value === undefined || props.value === ""
+										? setIsFilled(false)
+										: setIsFilled(true);
+									props.onBlur && props.onBlur();
+								}
+							}}
+							selectionColor={props.selectionColor ?? theme.mainThemeColor}
+							autoFocus={props.autoFocus ?? false}
+							showSoftInputOnFocus={props.showSoftInputOnFocus ?? !disabled}
+							autoCapitalize={props.autoCapitalize ?? "none"}
+							autoCorrect={props.autoCorrect ?? false}
+							underlineColorAndroid={
+								props.underlineColorAndroid ?? "transparent"
 							}
-						}}
-						selectionColor={props.selectionColor ?? theme.mainThemeColor}
-						autoFocus={props.autoFocus ?? false}
-						showSoftInputOnFocus={props.showSoftInputOnFocus ?? !disabled}
-						autoCapitalize={props.autoCapitalize ?? "none"}
-						autoCorrect={props.autoCorrect ?? false}
-						underlineColorAndroid={props.underlineColorAndroid ?? "transparent"}
-						clearTextOnFocus={props.clearTextOnFocus ?? false}
-						numberOfLines={numberOfLines}
-						onContentSizeChange={(e) => {
-							if (props.multiline)
-								setNumberOfLines(
-									e.nativeEvent.contentSize.height /
-										(props.font
-											? props.font.fontSize!
-											: inputTextStyleProps.fontSize!)
-								);
-						}}
-					/>
+							clearTextOnFocus={props.clearTextOnFocus ?? false}
+							numberOfLines={numberOfLines}
+							onContentSizeChange={(e) => {
+								if (props.multiline)
+									setNumberOfLines(
+										e.nativeEvent.contentSize.height /
+											(props.font
+												? props.font.fontSize!
+												: inputTextStyleProps.fontSize!)
+									);
+							}}
+						/>
+					</View>
 				)}
 			</Pressable>
 			{props.maxLength && props.maxLength > 0 && (

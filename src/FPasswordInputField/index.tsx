@@ -47,10 +47,7 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 				props.containerStyle,
 			]}
 		>
-			<Pressable
-				style={[styles(styleProps).FPasswordInputFieldDiv, props.divStyle]}
-				disabled={disabled}
-			>
+			<View style={[styles(styleProps).FPasswordInputFieldDiv, props.divStyle]}>
 				{props.leadingIcon ?? (
 					<LockIcon
 						strokeColor={
@@ -67,7 +64,10 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 					/>
 				)}
 				<Pressable
-					style={{ flex: 1 }}
+					style={[
+						{ flex: 1, marginRight: FRWDScaleCalculator(8) },
+						props.inputAreaStyle,
+					]}
 					disabled={disabled}
 					onPress={() => !disabled && setIsTriggered(true)}
 				>
@@ -78,6 +78,8 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 							props.font ?? FFontTypes.FDefaultFonts.Large_Text(),
 							{
 								color: FColorTypes.PRIMARY_BLACK,
+								flex: 1,
+								height: "100%",
 							},
 							props.inputStyle,
 						]}
@@ -149,7 +151,7 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 						onPress={() => (props.disabled ? undefined : setShowPassword(true))}
 					/>
 				)}
-			</Pressable>
+			</View>
 			{props.customWarningLabel}
 		</View>
 	);

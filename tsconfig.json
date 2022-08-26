@@ -1,11 +1,11 @@
 {
 	"compilerOptions": {
 		"module": "esnext",
-		"target": "es5",
-		"lib": ["es6", "dom"], 
+		"target": "esnext",
+		"lib": ["ES2017"],
 		"sourceMap": true,
 		"allowJs": true,
-		"jsx": "react",
+		"jsx": "react-native",
 		"moduleResolution": "node",
 		"forceConsistentCasingInFileNames": true,
 		"noImplicitReturns": true,
@@ -20,10 +20,11 @@
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"resolveJsonModule": true,
-		"isolatedModules": false,
+		"isolatedModules": true,
 		"strictPropertyInitialization": false,
 		"declarationMap": true,
-		"declaration": true
+		"declaration": true,
+		"typeRoots": ["node_modules/@types", "src/types"]
 	},
-	"exclude": ["node_modules", "lib"]
+	"exclude": ["node_modules", "lib", "jest.config.js"]
 }

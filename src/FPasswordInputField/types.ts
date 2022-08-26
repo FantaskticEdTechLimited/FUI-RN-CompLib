@@ -80,16 +80,20 @@ export interface FPasswordInputFieldProps
 	 */
 	renderInputFieldState?: (state: FTextInputFieldStateProps) => void;
 	/**
-	 * The style of the whole password input field (with `customWarningLabel`).
+	 * The style of the password input container, including the `customWarningLabel`.
 	 */
 	containerStyle?: StyleProp<ViewStyle>;
 	/**
-	 * The style of the password input field div itself
-	 * (without `customWarningLabel`).
+	 * The style of the password input field with the `leadingIcon` (e.g. lock icon)
+	 * and the `actionIcon` (e.g. eye icon) inside, but not the `customWarningLabel`.
 	 */
 	divStyle?: StyleProp<ViewStyle>;
 	/**
-	 * The style of password (text) input.
+	 * The style of the (pressable) password input area.
+	 */
+	inputAreaStyle?: StyleProp<TextStyle>;
+	/**
+	 * The style of password text input.
 	 */
 	inputStyle?: StyleProp<TextStyle>;
 	/**

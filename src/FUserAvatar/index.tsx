@@ -14,7 +14,8 @@ export const FUserAvatar = (props: FUserAvatarProps) => {
 		return props.label
 			.match(/\b(\w)/g)
 			?.slice(0, 2)
-			.join("");
+			.join("")
+			.toUpperCase();
 	};
 
 	return (

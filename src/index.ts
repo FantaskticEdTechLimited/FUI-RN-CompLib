@@ -29,9 +29,7 @@ import {
 export {
 	FButton,
 	FButtonTypes,
-	FButtonProps,
 	FText,
-	FTextProps,
 	FTextInputField,
 	FHeaderButton,
 	FHeaderButtonTypes,
@@ -49,11 +47,15 @@ export {
 	// =====================
 	WithFUIThemeContext,
 	FUseTheme,
-	FTheme,
 	// =====================
 	// Utils
 	// =====================
 	FRWDScaleCalculator,
+};
+export type {
+	FButtonProps,
+	FTextProps,
+	FTheme,
 	// =====================
 	// Global Types
 	// =====================

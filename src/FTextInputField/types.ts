@@ -58,9 +58,13 @@ export interface FTextInputFieldProps extends ModifiedTextInputProps {
 	 */
 	containerStyle?: StyleProp<ViewStyle>;
 	/**
-	 * The style of the input field div itself (without the word count container).
+	 * The style of the input field div (without the word count container).
 	 */
 	divStyle?: StyleProp<ViewStyle>;
+	/**
+	 * The style of text input area.
+	 */
+	inputAreaStyle?: StyleProp<TextStyle>;
 	/**
 	 * The style of text input.
 	 */

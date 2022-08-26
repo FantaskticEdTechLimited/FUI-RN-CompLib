@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Pressable, useWindowDimensions, View } from "react-native";
 import { FBottomNavBar, FRWDScaleCalculator } from "..";
 import { styles } from "./styles";

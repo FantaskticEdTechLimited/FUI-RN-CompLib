@@ -1,53 +1,48 @@
 {
-  "name": "@fantaskticedtechlimited/fui-rn-complib",
-  "version": "2.15.11-beta-10",
-  "description": "Fantasktic UI React Native Component Library",
-  "repository": "https://github.com/FantaskticEdTechLimited/FUI-RN-CompLib.git",
-  "author": "pakmatthew",
-  "license": "MIT",
-  "private": false,
-  "main": "lib\\commonjs\\index.js",
-  "react-native": "src\\index.ts",
-  "module": "lib\\module\\index.js",
-  "types": "lib\\typescript\\index.d.ts",
-  "files": [
-    "lib"
-  ],
-  "scripts": {
-    "prepare": "bob build"
-  },
-  "devDependencies": {
-    "@react-native-community/bob": "^0.17.1",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
-    "@types/react-native": "^0.69.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-native": "^0.69.1",
-    "react-native-circular-progress": "^1.3.7",
-    "react-native-elements": "^3.4.2",
-    "react-native-gesture-handler": "~2.2.1",
-    "react-native-keyboard-aware-scroll-view": "^0.9.5",
-    "react-native-reanimated": "~2.8.0",
-    "react-native-status-bar-height": "^2.6.0",
-    "react-native-svg": "^12.1.1",
-    "reanimated-bottom-sheet": "^1.0.0-alpha.22",
-    "typescript": "^4.7.4"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "@react-native-community/bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      "commonjs",
-      "module",
-      "typescript"
-    ]
-  },
-  "dependencies": {
-    "@fantaskticedtechlimited/fui-rn-colorlib": "^2.2.0",
-    "@fantaskticedtechlimited/fui-rn-fontlib": "^3.8.0-alpha-1.1"
-  }
+	"name": "@fantaskticedtechlimited/fui-rn-complib",
+	"version": "2.16.2",
+	"description": "Fantasktic UI React Native Component Library",
+	"repository": "https://github.com/FantaskticEdTechLimited/FUI-RN-CompLib.git",
+	"author": "pakmatthew",
+	"license": "MIT",
+	"private": false,
+	"main": "lib\\commonjs\\index.js",
+	"react-native": "src\\index.ts",
+	"module": "lib\\module\\index.js",
+	"types": "lib\\typescript\\index.d.ts",
+	"files": [
+		"lib"
+	],
+	"dependencies": {
+		"@fantaskticedtechlimited/fui-rn-colorlib": "^2.2.0",
+		"@fantaskticedtechlimited/fui-rn-fontlib": "^3.8.0-alpha-1.1",
+		"@react-native-community/bob": "^0.17.1",
+		"@types/jest": "^28.1.8",
+		"@types/react": "17.0.48",
+		"@types/react-dom": "^17.0.11",
+		"@types/react-native": "^0.69.1",
+		"@types/react-test-renderer": "^18.0.0",
+		"react": "18.0.0",
+		"react-dom": "^18.2.0",
+		"react-native": "0.69.4",
+		"react-native-circular-progress": "^1.3.7",
+		"react-native-elements": "^3.4.2",
+		"react-native-gesture-handler": "~2.2.1",
+		"react-native-reanimated": "~2.8.0",
+		"react-native-status-bar-height": "^2.6.0",
+		"react-native-svg": "^12.1.1",
+		"reanimated-bottom-sheet": "^1.0.0-alpha.22",
+		"typescript": "^4.8.2"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"@react-native-community/bob": {
+		"source": "src",
+		"output": "lib",
+		"targets": [
+			"commonjs",
+			"typescript"
+		]
+	}
 }

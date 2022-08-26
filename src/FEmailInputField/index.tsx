@@ -80,6 +80,7 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 						{
 							color: FColorTypes.PRIMARY_BLACK,
 							flex: 1,
+							height: "100%",
 						},
 						props.inputStyle,
 					]}

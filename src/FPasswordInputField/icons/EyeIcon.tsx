@@ -1,13 +1,13 @@
 import Svg, { Path, SvgProps, PathProps } from "react-native-svg";
 import React from "react";
-import { FRWDScaleCalculator } from "../..";
+import { FRWDScaler } from "../..";
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
-import { FPasswordInputFieldIconProps } from "./types"; 
+import { FPasswordInputFieldIconProps } from "./types";
 
 export const EyeIcon = (props: FPasswordInputFieldIconProps) => {
 	const SvgProps: SvgProps = {
-		width: FRWDScaleCalculator(24),
-		height: FRWDScaleCalculator(24),
+		width: FRWDScaler(24),
+		height: FRWDScaler(24),
 		viewBox: "0 0 24 24",
 		fill: "none",
 		onPress: props.svgProps?.onPress ?? props.onPress,

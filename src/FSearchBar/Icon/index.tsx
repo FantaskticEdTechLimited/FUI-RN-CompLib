@@ -1,12 +1,12 @@
 import Svg, { Path, PathProps, SvgProps } from "react-native-svg";
 import React from "react";
 import { FSearchBarIconProps } from "./types";
-import { FRWDScaleCalculator } from "../..";
+import { FRWDScaler } from "../..";
 
 export const FSearchBarIcon = (props: FSearchBarIconProps) => {
 	const SvgProps: SvgProps = {
-		width: FRWDScaleCalculator(18),
-		height: FRWDScaleCalculator(18),
+		width: FRWDScaler(18),
+		height: FRWDScaler(18),
 		viewBox: "0 0 18 18",
 		fill: "none",
 		onPress: props.iconProps?.svgProps?.onPress ?? props.onPress,

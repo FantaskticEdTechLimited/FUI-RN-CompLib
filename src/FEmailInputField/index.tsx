@@ -5,7 +5,7 @@ import { Pressable, TextInput, View } from "react-native";
 import { FFontTypes } from "@fantaskticedtechlimited/fui-rn-fontlib";
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { FEmailInputFieldIcon } from "./Icon";
-import { FRWDScaleCalculator, FText, FUseTheme } from "..";
+import { FRWDScaler, FText, FUseTheme } from "..";
 
 export const FEmailInputField = (props: FEmailInputFieldProps) => {
 	const [isTriggered, setIsTriggered] = useState<boolean>(false);
@@ -69,7 +69,7 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 								: FColorTypes.PRIMARY_BLACK
 							: FColorTypes.PRIMARY_BLACK
 					}
-					style={{ marginRight: FRWDScaleCalculator(8) }}
+					style={{ marginRight: FRWDScaler(8) }}
 					iconProps={props.emailIconProps}
 				/>
 				<TextInput
@@ -134,7 +134,7 @@ export const FEmailInputField = (props: FEmailInputFieldProps) => {
 						font={props.warningLabelProps?.font ?? warningLabelProps}
 						color={props.warningLabelProps?.color ?? FColorTypes.SECONDARY_RED}
 						style={[
-							{ marginTop: FRWDScaleCalculator(4) },
+							{ marginTop: FRWDScaler(4) },
 							props.warningLabelProps?.style,
 						]}
 						children={

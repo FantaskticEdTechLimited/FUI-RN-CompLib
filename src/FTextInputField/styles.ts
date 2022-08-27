@@ -1,6 +1,6 @@
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { StyleSheet } from "react-native";
-import { FRWDScaleCalculator } from "../utils/useRWDScale";
+import { FRWDScaler } from "../utils/useRWDScaler";
 import { FTextInputFieldStyleProps } from "./types";
 
 export const styles = (styleProps: FTextInputFieldStyleProps) =>
@@ -14,20 +14,20 @@ export const styles = (styleProps: FTextInputFieldStyleProps) =>
 			display: "flex",
 			flexDirection: "column",
 			paddingVertical: styleProps.props.multiline
-				? FRWDScaleCalculator(12)
+				? FRWDScaler(12)
 				: styleProps.props.label || styleProps.props.labelProps?.children
 				? styleProps.isFilled || styleProps.isTriggered
-					? FRWDScaleCalculator(8)
-					: FRWDScaleCalculator(20)
+					? FRWDScaler(8)
+					: FRWDScaler(20)
 				: styleProps.isFilled || styleProps.isTriggered
-				? FRWDScaleCalculator(12)
-				: FRWDScaleCalculator(12),
-			paddingHorizontal: FRWDScaleCalculator(12),
+				? FRWDScaler(12)
+				: FRWDScaler(12),
+			paddingHorizontal: FRWDScaler(12),
 			marginBottom:
 				styleProps.props.maxLength && styleProps.props.maxLength > 0
 					? styleProps.props.multiline
-						? FRWDScaleCalculator(4)
-						: FRWDScaleCalculator(8)
+						? FRWDScaler(4)
+						: FRWDScaler(8)
 					: 0,
 			borderWidth: 2,
 			borderRadius: 4,
@@ -37,9 +37,7 @@ export const styles = (styleProps: FTextInputFieldStyleProps) =>
 				? FColorTypes.PRIMARY_BLACK
 				: FColorTypes.PRIMARY_LIGHT,
 			backgroundColor: FColorTypes.PRIMARY_LIGHT as string,
-			minHeight: styleProps.props.multiline
-				? FRWDScaleCalculator(112)
-				: undefined,
+			minHeight: styleProps.props.multiline ? FRWDScaler(112) : undefined,
 		},
 		FTextInputFieldInputDiv: {
 			color: FColorTypes.PRIMARY_BLACK as string,

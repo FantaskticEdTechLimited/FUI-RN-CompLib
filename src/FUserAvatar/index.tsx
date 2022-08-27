@@ -4,7 +4,7 @@ import { Platform, View } from "react-native";
 import { FUserAvatarProps } from "./types";
 import { styles } from "./styles";
 import { FFontTypes } from "@fantaskticedtechlimited/fui-rn-fontlib";
-import { FRWDScaleCalculator, FText, FUseTheme } from "..";
+import { FRWDScaler, FText, FUseTheme } from "..";
 
 export const FUserAvatar = (props: FUserAvatarProps) => {
 	const { theme } = FUseTheme();
@@ -35,8 +35,8 @@ export const FUserAvatar = (props: FUserAvatarProps) => {
 				children={handleGenerateInitials()}
 				style={[
 					{
-						marginTop: Platform.OS === "android" ? FRWDScaleCalculator(-4) : 0,
-						marginLeft: Platform.OS === "ios" ? FRWDScaleCalculator(2) : 0,
+						marginTop: Platform.OS === "android" ? FRWDScaler(-4) : 0,
+						marginLeft: Platform.OS === "ios" ? FRWDScaler(2) : 0,
 					},
 					props.labelProps?.style,
 				]}

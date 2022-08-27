@@ -1,12 +1,12 @@
 import { FEmailInputFieldIconProps } from "./types";
 import Svg, { Path, SvgProps, PathProps } from "react-native-svg";
 import React from "react";
-import { FRWDScaleCalculator } from "../..";
+import { FRWDScaler } from "../..";
 
 export const FEmailInputFieldIcon = (props: FEmailInputFieldIconProps) => {
 	const SvgProps: SvgProps = {
-		width: FRWDScaleCalculator(24),
-		height: FRWDScaleCalculator(24),
+		width: FRWDScaler(24),
+		height: FRWDScaler(24),
 		viewBox: "0 0 24 24",
 		fill: "none",
 		onPress: props.iconProps?.svgProps?.onPress ?? props.onPress,

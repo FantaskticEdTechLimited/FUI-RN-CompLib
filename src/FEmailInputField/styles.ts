@@ -1,7 +1,7 @@
-import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib"; 
+import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { StyleSheet } from "react-native";
-import { FRWDScaleCalculator } from "..";
-import { FEmailInputFieldStyleProps } from "./types"; 
+import { FRWDScaler } from "..";
+import { FEmailInputFieldStyleProps } from "./types";
 
 export const styles = (styleProps: FEmailInputFieldStyleProps) =>
 	StyleSheet.create({
@@ -14,7 +14,7 @@ export const styles = (styleProps: FEmailInputFieldStyleProps) =>
 			display: "flex",
 			flexDirection: "row",
 			alignItems: "center",
-			padding: FRWDScaleCalculator(12),
+			padding: FRWDScaler(12),
 			opacity: styleProps.disabled ? 0.4 : 1,
 			borderWidth: 2,
 			borderColor: styleProps.isTriggered

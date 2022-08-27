@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
-import { FRWDScaleCalculator } from "..";
+import { FRWDScaler } from "..";
 
 export const styles = StyleSheet.create({
 	FUserAvatar_Container: {
-		width: FRWDScaleCalculator(64),
-		height: FRWDScaleCalculator(64),
+		width: FRWDScaler(64),
+		height: FRWDScaler(64),
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",

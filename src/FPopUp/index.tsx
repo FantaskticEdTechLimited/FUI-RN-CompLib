@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Pressable, useWindowDimensions, View } from "react-native";
-import { FBottomNavBar, FRWDScaleCalculator } from "..";
+import { FBottomNavBar, FRWDScaler } from "..";
 import { styles } from "./styles";
 import { FPopUpProps } from "./types";
 import { getStatusBarHeight } from "react-native-status-bar-height";
 
 export const FPopUp = (props: FPopUpProps) => {
 	const { width: screenWidth, height: screenHeight } = useWindowDimensions();
-	
+
 	return (
 		<>
 			{props.isVisible && (
@@ -33,7 +33,7 @@ export const FPopUp = (props: FPopUpProps) => {
 					{!props.disableBottomNavBar && (
 						<FBottomNavBar
 							style={[
-								{ marginTop: FRWDScaleCalculator(16) },
+								{ marginTop: FRWDScaler(16) },
 								props.bottomNavBarStyle ?? props.bottomNavBarProps?.style,
 							]}
 							{...props.bottomNavBarProps}

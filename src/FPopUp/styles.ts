@@ -1,6 +1,6 @@
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { StyleSheet } from "react-native";
-import { FRWDScaleCalculator } from "..";
+import { FRWDScaler } from "..";
 
 export const styles = StyleSheet.create({
 	FPopUp_Overlay_Wrapper: {
@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
 		flexDirection: "column",
 		justifyContent: "center",
 		alignSelf: "center",
-		padding: FRWDScaleCalculator(16),
+		padding: FRWDScaler(16),
 		backgroundColor: FColorTypes.PRIMARY_WHITE as string,
 		borderRadius: 12,
 		position: "absolute",

@@ -11,12 +11,17 @@ import { FBottomNavBar } from "./FBottomNavBar";
 import { FSearchBar } from "./FSearchBar";
 import { FEmailInputField } from "./FEmailInputField";
 import { FKeyboardInputView } from "./FKeyboardInputView";
-import { FRWDScaleCalculator } from "./utils/useRWDScale";
 import { FBottomSheet } from "./FBottomSheet";
 import { FPopUp } from "./FPopUp";
 import { FPasswordInputField } from "./FPasswordInputField";
 import { FUserAvatar } from "./FUserAvatar";
 import { FCircularProgress } from "./FCircularProgress";
+// utils / functions
+import { FDateTimer } from "./utils/useDateTimer";
+import { FSingleDigitConverter } from "./utils/useSingleDigitConverter";
+import { FRWDScaler } from "./utils/useRWDScaler";
+import { FTimer } from "./utils/useTimer";
+import { FFirstLetterUppercase } from "./utils/useFirstLetterUppercase";
 // Global types
 import {
 	FNullable,
@@ -50,7 +55,11 @@ export {
 	// =====================
 	// Utils
 	// =====================
-	FRWDScaleCalculator,
+	FDateTimer,
+	FSingleDigitConverter,
+	FRWDScaler,
+	FTimer,
+	FFirstLetterUppercase,
 };
 export type {
 	FButtonProps,

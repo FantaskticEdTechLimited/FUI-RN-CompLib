@@ -10,7 +10,7 @@ import { Pressable, TextInput, View } from "react-native";
 import { EyeIcon } from "./icons/EyeIcon";
 import { EyeOffIcon } from "./icons/EyeOffIcon";
 import { LockIcon } from "./icons/LockIcon";
-import { FRWDScaleCalculator, FUseTheme } from "..";
+import { FRWDScaler, FUseTheme } from "..";
 
 export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 	const [isTriggered, setIsTriggered] = useState<boolean>(false);
@@ -59,13 +59,13 @@ export const FPasswordInputField = (props: FPasswordInputFieldProps) => {
 									: FColorTypes.PRIMARY_BLACK
 								: FColorTypes.PRIMARY_BLACK
 						}
-						style={{ marginRight: FRWDScaleCalculator(8) }}
+						style={{ marginRight: FRWDScaler(8) }}
 						{...props.lockIconProps}
 					/>
 				)}
 				<Pressable
 					style={[
-						{ flex: 1, marginRight: FRWDScaleCalculator(8) },
+						{ flex: 1, marginRight: FRWDScaler(8) },
 						props.inputAreaStyle,
 					]}
 					disabled={disabled}

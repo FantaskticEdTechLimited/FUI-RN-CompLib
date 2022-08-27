@@ -1,6 +1,6 @@
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { StyleSheet } from "react-native";
-import { FRWDScaleCalculator, FTheme } from "..";
+import { FRWDScaler, FTheme } from "..";
 
 export const styles = (
 	disabled: boolean,
@@ -11,7 +11,7 @@ export const styles = (
 		FSearchBarContainer: {
 			backgroundColor: FColorTypes.PRIMARY_LIGHT as string,
 			borderRadius: 4,
-			padding: FRWDScaleCalculator(8),
+			padding: FRWDScaler(8),
 			opacity: disabled ? 0.4 : 1,
 			display: "flex",
 			flexDirection: "row",

@@ -1,6 +1,6 @@
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { StyleSheet } from "react-native";
-import { FRWDScaler } from "..";
+import { FRWDScaler } from "../utils/useRWDScaler";
 
 export const styles = StyleSheet.create({
 	FBottomSheet_Container: {

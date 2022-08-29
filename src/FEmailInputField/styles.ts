@@ -1,6 +1,6 @@
 import { FColorTypes } from "@fantaskticedtechlimited/fui-rn-colorlib";
 import { StyleSheet } from "react-native";
-import { FRWDScaler } from "..";
+import { FRWDScaler } from "../utils/useRWDScaler";
 import { FEmailInputFieldStyleProps } from "./types";
 
 export const styles = (styleProps: FEmailInputFieldStyleProps) =>

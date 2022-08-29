@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { FRWDScaler } from "..";
+import { FRWDScaler } from "../utils/useRWDScaler";
 
 export const styles = StyleSheet.create({
 	FUserAvatar_Container: {

@@ -16,6 +16,7 @@ import { FPopUp } from "./FPopUp";
 import { FPasswordInputField } from "./FPasswordInputField";
 import { FUserAvatar } from "./FUserAvatar";
 import { FCircularProgress } from "./FCircularProgress";
+import { FLoadingIndicator } from "./FLoadingIndicator";
 // utils / functions
 import { FDateTimer } from "./utils/useDateTimer";
 import { FSingleDigitConverter } from "./utils/useSingleDigitConverter";
@@ -50,6 +51,7 @@ export {
 	FPasswordInputField,
 	FUserAvatar,
 	FCircularProgress,
+	FLoadingIndicator,
 	// =====================
 	// Theme
 	// =====================

@@ -1610,13 +1610,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@openspacelabs/react-native-zoomable-view@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/@openspacelabs/react-native-zoomable-view/-/react-native-zoomable-view-2.0.4.tgz#e907a9d68e9b48bd2934ed0354bd5b3eb958f575"
-  integrity sha512-/mtLvqpP99NdYsskD+e+mNivBY+y/JzufxS2GWHeJE6H4NF63jDAfuBFV2gVmr1YIF3clZGlXqdvuqLIOk/H4g==
-  dependencies:
-    prop-types "^15.7.2"
-
 "@react-native-community/bob@^0.17.1":
   version "0.17.1"
   resolved "https://registry.npmjs.org/@react-native-community/bob/-/bob-0.17.1.tgz#72d71747208e6cf534f14ee7e5a0d39562f6d768"
